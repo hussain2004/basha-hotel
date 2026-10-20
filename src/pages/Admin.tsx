@@ -204,16 +204,98 @@ export default function Admin() {
   }, []);
 
   useEffect(() => {
-    if (role && !mustChangePassword) {
-      void loadOrders();
-    }
-  }, [role, mustChangePassword, loadOrders]);
+  if (!role || mustChangePassword) {
+    return;
+  }
 
-  useEffect(() => {
-    if (role === 'owner') {
-      void loadStaff();
+  let active = true;
+
+  async function fetchOrders() {
+    try {
+      setLoadingOrders(true);
+setPageError('');
+      const response = await fetch('/api/orders', {
+        credentials: 'same-origin',
+        cache: 'no-store',
+      });
+
+      const data = await readResponse<Order[]>(response);
+
+      if (active) {
+        setOrders(data);
+      }
+    } catch (error) {
+      if (!active) return;
+
+      const message =
+        error instanceof Error ? error.message : 'Unable to load orders.';
+
+      if (
+        message.includes('login required') ||
+        message.includes('sign in again')
+      ) {
+        setRole(null);
+        setOrders([]);
+            } else {
+        setPageError(message);
+      }
+    } finally {
+      if (active) {
+        setLoadingOrders(false);
+      }
     }
-  }, [role, loadStaff]);
+  }
+
+  void fetchOrders();
+
+  return () => {
+    active = false;
+  };
+}, [role, mustChangePassword]);
+
+useEffect(() => {
+  if (role !== 'owner') {
+    return;
+  }
+
+  let active = true;
+
+  async function fetchStaff() {
+    try {
+      setLoadingStaff(true);
+setPageError('');
+      const response = await fetch('/api/staff', {
+        credentials: 'same-origin',
+        cache: 'no-store',
+      });
+
+      const data = await readResponse<{ staff: StaffUser[] }>(response);
+
+      if (active) {
+        setStaffUsers(data.staff);
+      }
+    } catch (error) {
+      if (active) {
+        setPageError(
+          error instanceof Error
+            ? error.message
+            : 'Unable to load staff accounts.',
+        );
+      }
+    }
+    finally {
+  if (active) {
+    setLoadingStaff(false);
+  }
+}
+  }
+
+  void fetchStaff();
+
+  return () => {
+    active = false;
+  };
+}, [role]);
 
   function switchLoginMode(mode: LoginMode) {
     setLoginMode(mode);
