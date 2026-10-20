@@ -1,0 +1,420 @@
+
+/* Basha Hotel — Owner & Staff Dashboard */
+
+.admin-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 36px 20px 56px;
+  background: #f7f5ed;
+  color: #24352b;
+  font-family: inherit;
+}
+
+.admin-header,
+.admin-orders,
+.admin-staff-section {
+  width: 100%;
+  max-width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.admin-header {
+  margin-bottom: 30px;
+}
+
+.admin-eyebrow {
+  color: #52775b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.admin-header h1,
+.admin-login-card h1 {
+  margin: 10px 0;
+  font-size: clamp(30px, 5vw, 44px);
+  line-height: 1.15;
+}
+
+.admin-header > p:not(.admin-eyebrow) {
+  color: #68736a;
+  line-height: 1.6;
+}
+
+.admin-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.admin-header button,
+.admin-login-form button,
+.admin-accept-button,
+.admin-reject-button {
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 17px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.admin-header button {
+  background: #e4eadf;
+  color: #294d34;
+}
+
+.admin-header button:hover,
+.admin-login-form button:hover,
+.admin-accept-button:hover,
+.admin-reject-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.admin-header button:disabled,
+.admin-login-form button:disabled,
+.admin-order-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+/* Login card */
+
+.admin-login-card {
+  width: 100%;
+  max-width: 430px;
+  box-sizing: border-box;
+  margin: 8vh auto 0;
+  padding: clamp(24px, 5vw, 38px);
+  background: #fff;
+  border: 1px solid #e5e9df;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgb(37 57 39 / 6%);
+}
+
+.admin-login-description {
+  margin-bottom: 26px;
+  color: #68736a;
+  line-height: 1.6;
+}
+
+.admin-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-login-form label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.admin-login-form input,
+.admin-login-form select,
+.admin-login-form textarea,
+.admin-staff-section input,
+.admin-staff-section select {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid #ccd5c9;
+  border-radius: 10px;
+  padding: 13px 14px;
+  background: #fff;
+  color: #24352b;
+  font: inherit;
+}
+
+.admin-login-form input:focus,
+.admin-login-form select:focus,
+.admin-login-form textarea:focus,
+.admin-staff-section input:focus,
+.admin-staff-section select:focus {
+  outline: 3px solid rgb(36 107 58 / 15%);
+  border-color: #246b3a;
+}
+
+.admin-login-form button {
+  margin-top: 8px;
+  background: #246b3a;
+  color: #fff;
+}
+
+.admin-error {
+  color: #a12e27;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.admin-success {
+  color: #21683a;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* Login tabs and general tabs */
+
+.admin-order-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 28px;
+  padding: 8px;
+  background: #eeeee5;
+  border: 1px solid #e0e3d9;
+  border-radius: 14px;
+}
+
+.admin-order-tabs button {
+  flex: 1 1 130px;
+  min-height: 46px;
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: #465449;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease,
+    box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.admin-order-tabs button:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.admin-order-tabs button.active {
+  background: #234b35;
+  color: #fff;
+  border-color: #234b35;
+  box-shadow: 0 4px 12px rgb(35 75 53 / 18%);
+}
+
+.admin-order-tabs button:focus-visible {
+  outline: 3px solid #d88943;
+  outline-offset: 3px;
+}
+
+/* Orders dashboard */
+
+.admin-orders > h2,
+.admin-staff-section > h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.admin-order-card,
+.admin-staff-section > div {
+  background: #fff;
+  border: 1px solid #e5e9df;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgb(37 57 39 / 6%);
+}
+
+.admin-order-card {
+  margin-bottom: 18px;
+  padding: 24px;
+}
+
+.admin-order-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.admin-order-heading h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.order-status {
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+
+.status-pending {
+  background: #fff0cc;
+  color: #865700;
+}
+
+.status-accepted {
+  background: #dff4e4;
+  color: #21683a;
+}
+
+.status-rejected {
+  background: #ffe2df;
+  color: #a12e27;
+}
+
+.admin-order-card p {
+  margin: 10px 0;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.admin-order-card ul {
+  padding-left: 22px;
+  line-height: 1.9;
+}
+
+.admin-order-date {
+  color: #788078;
+  font-size: 13px;
+}
+
+.admin-order-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.admin-accept-button {
+  background: #246b3a;
+  color: #fff;
+}
+
+.admin-reject-button {
+  background: #fff0ed;
+  color: #a12e27;
+}
+
+/* Staff management */
+
+.admin-staff-section {
+  margin-top: 36px;
+}
+
+.admin-staff-section > div {
+  margin-bottom: 18px;
+  padding: 24px;
+}
+
+.admin-staff-section h3 {
+  margin-top: 0;
+  color: #294d34;
+  font-size: 18px;
+}
+
+.admin-staff-section p {
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.admin-staff-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-staff-section label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.admin-staff-section button {
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 15px;
+  background: #e4eadf;
+  color: #294d34;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.admin-staff-section button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.admin-staff-section button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+.admin-staff-section button[type="submit"] {
+  background: #246b3a;
+  color: #fff;
+}
+
+.admin-staff-section button.danger,
+.admin-staff-section .danger {
+  background: #fff0ed;
+  color: #a12e27;
+}
+
+.admin-staff-section button:focus-visible,
+.admin-header button:focus-visible,
+.admin-login-form button:focus-visible,
+.admin-order-actions button:focus-visible {
+  outline: 3px solid #d88943;
+  outline-offset: 3px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 600px) {
+  .admin-page {
+    padding: 24px 14px 36px;
+  }
+
+  .admin-login-card {
+    margin-top: 4vh;
+  }
+
+  .admin-order-card {
+    padding: 18px;
+  }
+
+  .admin-order-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-order-actions button {
+    flex: 1;
+  }
+
+  .admin-order-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 6px;
+  }
+
+  .admin-order-tabs button {
+    min-width: 0;
+    padding: 12px 6px;
+    font-size: 12px;
+  }
+
+  .admin-staff-section > div {
+    padding: 18px;
+  }
+
+  .admin-header-actions button {
+    flex: 1 1 auto;
+  }
+}

@@ -1,0 +1,106 @@
+
+:root {
+  font-family: 'DM Sans', 'Noto Sans Telugu', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: #23352a;
+  background: #faf8f1;
+
+  color-scheme: light;
+
+  --page-bg: #faf8f1;
+  --surface-bg: #ffffff;
+  --text-color: #23352a;
+  --muted-text: #68766b;
+  --border-color: #e4e0d5;
+  --accent-color: #234b35;
+  --accent-text: #fffdf7;
+  --input-bg: #ffffff;
+  --shadow-color: rgba(24, 56, 38, 0.10);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --page-bg: #151b17;
+  --surface-bg: #202923;
+  --text-color: #f1f3ed;
+  --muted-text: #b2bdb4;
+  --border-color: #3b473e;
+  --accent-color: #8fc9a0;
+  --accent-text: #14251a;
+  --input-bg: #202923;
+  --shadow-color: rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  background: var(--page-bg);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--text-color);
+  background: var(--page-bg);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: 'DM Sans', 'Noto Sans Telugu', sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+}
+
+::selection {
+  color: #fffdf7;
+  background: #234b35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
