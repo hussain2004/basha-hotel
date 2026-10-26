@@ -21,3 +21,9 @@ server/server.js.security-backup
 
 src/components/Cart.tsx.pre-privacy-fix
 src/components/Cart.tsx.security-backup
+# Local migration and deployment review files
+check-database-counts.cjs
+check-neon-identity.cjs
+test-neon-connection.cjs
+server/server.day3-backup.js
+server/server-day3-review.txt

@@ -105,7 +105,7 @@ export default function Admin() {
 
     try {
       const response = await fetch('/api/orders', {
-        credentials: 'same-origin',
+        credentials: 'include',
         cache: 'no-store',
       });
 
