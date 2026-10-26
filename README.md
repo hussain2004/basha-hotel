@@ -1,87 +1,243 @@
-﻿# Basha Hotel — Digital Menu & Order Management
+﻿# 🏨 Basha Hotel — Full-Stack Pickup Ordering Platform
 
-A full-stack web application for a local hotel, designed to display menu items in Telugu and English and support online pickup orders and order management.
+<p align="center">
+  A modern, bilingual website for a local hotel in Uppalapadu, Kurnool, Andhra Pradesh.
+  <br />
+  Browse the menu, place pickup orders, and manage orders through a secure owner dashboard.
+</p>
 
-## Project Goals
+<p align="center">
+  <a href="https://basha-hotel.onrender.com/"><strong>🌐 Live Website</strong></a>
+  &nbsp;•&nbsp;
+  <a href="https://github.com/hussain2004/basha-hotel"><strong>💻 GitHub Repository</strong></a>
+</p>
 
-- Provide a simple, mobile-friendly digital menu.
-- Support Telugu and English language selection.
-- Allow customers to place pickup orders.
-- Enable order tracking through a secure order token.
-- Provide protected staff and owner operations for managing orders.
+<p align="center">
+  ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-Frontend-3178C6?logo=typescript&logoColor=white)
+  ![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?logo=nodedotjs&logoColor=white)
+  ![Express](https://img.shields.io/badge/Express.js-API-000000?logo=express&logoColor=white)
+  ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql&logoColor=white)
+  ![Render](https://img.shields.io/badge/Deployed%20on-Render-46E3B7?logo=render&logoColor=black)
+</p>
 
-## Technology Stack
+---
 
-### Frontend
-- React
-- TypeScript
-- Vite
-- HTML and CSS
+## 📌 Project Overview
 
-### Backend
-- Node.js
-- Express.js
-- REST APIs
-- Express Session
+Basha Hotel is a full-stack web application built to help a local hotel present its menu online and manage customer pickup orders.
 
-### Database
-- SQLite
-- better-sqlite3
+The application provides a bilingual customer experience in English and Telugu, a food menu with prices, a shopping cart, order tracking, and an owner dashboard for managing orders and staff accounts.
 
-### Security
-- Environment-based configuration for sensitive values
-- Password-hash verification
-- Session-based authentication for protected operations
-- Token-based customer order tracking
+**Project goals:**
+- Make the hotel menu accessible online.
+- Allow customers to prepare and submit pickup orders.
+- Help the owner review, accept, and reject orders.
+- Provide a simple interface suitable for mobile and desktop users.
+- Support the hotel's day-to-day operations with a practical digital solution.
 
-## Current Features
+## 📸 Screenshots
 
-- Digital menu with Telugu and English language support
-- Customer order creation
-- Order status tracking using an order-specific token
-- Protected order-management endpoints
-- SQLite database for persistent application data
+### 🏠 Homepage
 
-## Run Locally
+The landing page introduces Basha Hotel, highlights the local food experience, and provides navigation to the menu and hotel information.
 
-### 1. Install dependencies
+![Basha Hotel Homepage](screenshots/homepage.png)
 
-Install the frontend dependencies:
+### 🍽️ Menu and Pricing
+
+Customers can browse available tiffins and snacks, view prices, switch between morning and evening menus, and add items to their cart.
+
+![Basha Hotel Menu](screenshots/menu.png)
+
+### 📋 Owner Dashboard
+
+The owner dashboard provides order-status views and staff-account management tools.
+
+![Basha Hotel Owner Dashboard](screenshots/owner-dashboard.png)
+
+---
+
+## ✨ Features
+
+### 👨‍🍳 Customer Experience
+- **Bilingual interface:** English and Telugu support.
+- **Digital menu:** Browse food items and prices.
+- **Shopping cart:** Select items and quantities before checkout.
+- **Pickup ordering:** Submit customer details and pickup notes.
+- **Order tracking:** Check order status using the order-tracking feature.
+- **Responsive interface:** Designed for mobile and desktop use.
+
+### 🔐 Owner and Staff Management
+- Authenticated owner and staff access.
+- Protected order-management API endpoints.
+- View incoming customer pickup orders.
+- Accept or reject pending orders.
+- Update order statuses for customer tracking.
+- Manage staff accounts through the owner dashboard.
+- Session-based authentication with production cookie-security settings.
+
+### 🛡️ Security and Reliability
+- Server-side validation for order submissions.
+- PostgreSQL-backed persistent application data.
+- Environment variables for sensitive configuration.
+- Rate limiting on order submissions to help reduce automated abuse.
+- Production deployment using Render and Neon PostgreSQL.
+
+---
+
+## 🧰 Technology Stack
+
+| Layer | Technologies |
+|---|---|
+| Frontend | React, TypeScript, Vite |
+| Backend | Node.js, Express.js |
+| Database | PostgreSQL |
+| Database hosting | Neon |
+| API | REST APIs |
+| Authentication | Session-based authentication |
+| Security | Express rate limiting, protected routes, secure environment configuration |
+| Deployment | Render |
+| Version control | Git, GitHub |
+
+---
+
+## 🏗️ Application Architecture
+
+```mermaid
+flowchart TD
+    A["Customer"] --> B["React + TypeScript Frontend"]
+    C["Owner / Staff"] --> B
+    B --> D["Node.js + Express API"]
+    D --> E["Authentication and Validation"]
+    E --> F["PostgreSQL Database on Neon"]
+    D --> G["Order Management"]
+    G --> F
+    D --> H["Rate Limiting"]
+```
+
+The frontend communicates with the Express backend through API endpoints. The backend handles application logic, authentication, validation, and database operations. PostgreSQL stores persistent application data.
+
+---
+
+## 🔄 Order Workflow
+
+1. The customer opens the website and browses the menu.
+2. The customer adds items to the cart.
+3. The customer submits a pickup order with the required details.
+4. The backend validates the submission and stores the order.
+5. The owner or an authorized staff member reviews the order.
+6. The order is accepted or rejected.
+7. The customer can check the order status.
+
+**Current scope:** Pickup ordering only. Online payment and delivery are not currently offered.
+
+---
+
+## 🚀 Live Deployment
+
+- **Website:** https://basha-hotel.onrender.com/
+- **Source code:** https://github.com/hussain2004/basha-hotel
+- **Database:** PostgreSQL hosted on Neon
+- **Application hosting:** Render
+
+The production application uses environment variables to configure its database connection and security-related settings.
+
+---
+
+## 💻 Run Locally
+
+### Prerequisites
+
+Install the following before running the project:
+
+- Node.js and npm
+- Git
+- PostgreSQL database or a Neon PostgreSQL database
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/hussain2004/basha-hotel.git
+cd basha-hotel
+```
+
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-Install backend dependencies if the server has its own package.json:
+### 3. Configure environment variables
 
-```bash
-cd server
-npm install
+Create a local `.env` file in the project root using the following placeholders:
+
+```env
+NODE_ENV=development
+DATABASE_URL=your_postgresql_connection_string
+SESSION_SECRET=your_long_random_session_secret
+OWNER_PASSWORD_HASH=your_bcrypt_password_hash
 ```
 
-### 2. Configure environment variables
+Replace each placeholder with the appropriate local configuration. Do not commit real credentials, password hashes, or secret values to GitHub.
 
-Create the required local environment configuration based on the variables expected by the server. Keep secrets out of Git.
+### 4. Start the application
 
-Required variables include:
-- `SESSION_SECRET`
-- `OWNER_PASSWORD_HASH`
+Use the development and startup commands defined in the project's `package.json` and backend configuration. The frontend and backend may need to be started separately, depending on the available scripts.
 
-Use the project's existing configuration and startup instructions to determine any additional required values.
+For production, the deployed backend uses `server/server.postgres.js`.
 
-### 3. Start the application
+---
 
-Start the backend and frontend using the scripts configured in their respective package.json files.
+## ☁️ Deployment and Configuration
 
-## Project Status
+The production deployment uses:
 
-Under development. Features, security checks, testing, and deployment preparation are ongoing.
+- **Render** to host the application.
+- **Neon** to provide PostgreSQL storage.
+- **Environment variables** to store deployment configuration outside the source code.
 
-## Developer
+When deploying your own instance, configure the required environment variables in the hosting provider's dashboard and ensure the database schema is initialized correctly.
 
-Shaik Mahaboob Hussain  
+---
+
+## 🧠 Engineering Highlights
+
+This project demonstrates practical full-stack development concepts, including:
+
+- Building a responsive React and TypeScript user interface.
+- Designing and integrating REST API endpoints.
+- Connecting a Node.js backend to PostgreSQL.
+- Implementing session-based authentication.
+- Protecting owner and staff operations.
+- Validating customer order submissions.
+- Applying rate limiting to an API endpoint.
+- Deploying a full-stack application and maintaining a public GitHub repository.
+
+---
+
+## 🔮 Potential Future Improvements
+
+- Online payment integration.
+- Order-ready notifications.
+- Improved order analytics and reporting.
+- Automated database backups and recovery testing.
+- Expanded accessibility and mobile usability testing.
+
+---
+
+## 👨‍💻 Developer
+
+**Shaik Mahaboob Hussain**
+
 B.E. Computer Science and Engineering | 2026 Graduate
 
-## Notes
+- GitHub: https://github.com/hussain2004
+- Project repository: https://github.com/hussain2004/basha-hotel
+- Live project: https://basha-hotel.onrender.com/
 
-This project is being developed as a practical portfolio project to demonstrate web development, REST API design, database integration, authentication, and order-management concepts.
+---
+
+<p align="center">
+  Built with ❤️ for Basha Hotel, Uppalapadu, Kurnool, Andhra Pradesh.
+</p>
