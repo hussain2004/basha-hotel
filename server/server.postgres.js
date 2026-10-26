@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
+import { rateLimit } from 'express-rate-limit';
 import session from 'express-session';
 import connectPgSimple from 'connect-pg-simple';
 import { Pool } from 'pg';
@@ -779,9 +780,18 @@ app.get(
   }),
 );
 // -------------------- CUSTOMER PICKUP REQUESTS --------------------
-
+const orderSubmissionLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    message: 'Too many order submissions. Please try again later.',
+  },
+});
 app.post(
   '/api/orders',
+  orderSubmissionLimiter,
   asyncHandler(async (req, res) => {
     const { customerName, phone, pickupNote, items } = req.body ?? {};
 
